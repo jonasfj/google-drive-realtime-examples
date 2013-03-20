@@ -1,0 +1,33 @@
+doctype 5
+html
+  head
+    block head
+      meta(charset='utf-8')
+      title
+        block title
+          | CodeMirror Real-time Editor
+      link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Open+Sans')
+      for source in style
+        link(rel='stylesheet', href="#{source}")
+      script(src="https://apis.google.com/js/api.js")
+      script(src="https://www.google.com/jsapi")
+      for source in scripts
+        script(src="#{source}")
+  body
+    div.container-fluid
+      div.row-fluid
+        div.hero-unit(style='margin-top: 20px;')
+          h1 Real-time CodeMirror
+          p Real-time collaborative markdown editor for Google Drive using CodeMirror and Google Drive Real-time API.
+      div.row-fluid
+        div.span8.input-prepend
+          span.add-on Filename
+          input#doc-name.span6(type='text',disabled='true')
+        div.span4(style='text-align: right;')
+          button#btn-auth.btn.btn-primary.disabled Authorize
+          button#btn-create.btn.btn-success.disabled Create
+          button#btn-open.btn.btn-primary.disabled Open
+          button#btn-share.btn.btn-danger.disabled Share
+      div.row-fluid
+        div#editor.span12
+
