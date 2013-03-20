@@ -1,6 +1,7 @@
 
-APPID    = ""
-CLIENTID = ""
+# These only works from jonasfj.github.com/realtime-codemirror-example/
+APPID    = "908797014622"
+CLIENTID = "908797014622-31tl0h44jidpu71ficem41rudn0uqp6l.apps.googleusercontent.com"
 
 _client = null
 _editor = null
@@ -14,7 +15,7 @@ $ ->
   _editor.setSize("100%", "400")
   
   _client = new rtclient.RealtimeLoader
-    #appId:                  '' #TODO Add appId when we have one...
+    appId:                  APPID
     clientId:               CLIENTID
     authButtonElementId:    'btn-auth'
     autoCreate:             false
