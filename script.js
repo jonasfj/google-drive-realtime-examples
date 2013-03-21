@@ -57,13 +57,14 @@
       });
     });
     $('#btn-share').click(function() {
-      var shareClient;
+      var s;
       if ($('#btn-share').hasClass('disabled')) {
         return;
       }
-      shareClient = new gapi.drive.share.ShareClient(APPID);
-      shareClient.setItemIds([rtclient.params['fileId']]);
-      return shareClient.showSettingsDialog();
+      s = new gapi.drive.share.ShareClient(APPID);
+      console.log("fileid: " + rtclient.params['fileId']);
+      s.setItemIds(["" + rtclient.params['fileId']]);
+      return s.showSettingsDialog();
     });
     $('#btn-auth').removeClass('disabled');
     return _client.start(function() {
