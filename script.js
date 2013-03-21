@@ -57,14 +57,10 @@
       });
     });
     $('#btn-share').click(function() {
-      var s;
       if ($('#btn-share').hasClass('disabled')) {
         return;
       }
-      s = new gapi.drive.share.ShareClient(APPID);
-      console.log("fileid: " + rtclient.params['fileId']);
-      s.setItemIds(["" + rtclient.params['fileId']]);
-      return s.showSettingsDialog();
+      return alert("Share doesn't work without HTTPS, just used drive.google.com to change share settings!");
     });
     $('#btn-auth').removeClass('disabled');
     return _client.start(function() {
