@@ -1,0 +1,18 @@
+CodeMirror Collaboration with Google Drive Realtime Api
+=======================================================
+
+This little hack demonstrates how to make a collaborative CodeMirror session using Google Drive Realtime Api.
+A demo is [hosted here](http://jonasfj.github.com/realtime-codemirror-example).
+
+
+License
+=======
+Feel free to use this code for whatever you want.
+Unless noted otherwise, this code is released into public domain.
+Libraries included is ofcoursed licensed as noted below.
+
+  * `glyphicons` is [CC-BY 3.0](http://creativecommons.org/licenses/by/3.0/).
+  * `bootstrap.min.(js|css)` is [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0)
+  * `CodeMirror.min.js` is a [MIT-style License](http://codemirror.net/LICENSE)
+  * `jquery.min.js` is the [MIT License](https://jquery.org/license/)
+  * `realtime-client-utils.js` is [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0)

@@ -3,6 +3,10 @@
 APPID    = "908797014622"
 CLIENTID = "908797014622-31tl0h44jidpu71ficem41rudn0uqp6l.apps.googleusercontent.com"
 
+# These only works from localhost:3335
+#APPID    = "908797014622"
+#CLIENTID = '908797014622.apps.googleusercontent.com'
+
 _client = null
 _editor = null
 $ ->
@@ -55,9 +59,10 @@ $ ->
   # Share button click
   $('#btn-share').click ->
     return      if $('#btn-share').hasClass 'disabled'
-    shareClient = new gapi.drive.share.ShareClient(APPID)
-    shareClient.setItemIds([rtclient.params['fileId']])
-    shareClient.showSettingsDialog()
+    alert("Share doesn't work without HTTPS, just used drive.google.com to change share settings!")
+    #s = new gapi.drive.share.ShareClient(APPID)
+    #s.setItemIds([rtclient.params['fileId']])
+    #s.showSettingsDialog()
 
   # Try for auto authentication, or wait for user to click authenticate
   $('#btn-auth').removeClass 'disabled'
