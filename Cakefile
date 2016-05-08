@@ -8,9 +8,10 @@ path          = require 'path'
 watch         = require 'node-watch'
 minimatch     = require 'minimatch'
 connect       = require 'connect'
+serveStatic   = require 'serve-static'
 
 #### Configuration
-
+app = connect()
 # Port on localhost
 _port = 3335
 
@@ -212,9 +213,7 @@ task 'watch-files', "Rebuild files on changes", ->
       copy file
 
 task 'server', "Launch development server", ->
-  connect(
-    connect.static(path.join __dirname, 'bin')
-  ).listen _port
+  app.use(serveStatic(path.join(__dirname, 'bin'))).listen _port
 
 task 'develop', "Build, watch and launch development server", ->
   invoke 'watch'
