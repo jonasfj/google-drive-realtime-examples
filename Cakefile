@@ -8,9 +8,10 @@ path          = require 'path'
 watch         = require 'node-watch'
 minimatch     = require 'minimatch'
 connect       = require 'connect'
+serveStatic   = require 'serve-static'
 
 #### Configuration
-
+app = connect()
 # Port on localhost
 _port = 3335
 
@@ -66,7 +67,7 @@ template_arguments = (template) ->
   if not _templates[template]?
     print "Template #{template} isn't configured in `_templates`"
     return null
-  rel = path.relative(path.dirname template, __dirname)
+  rel = path.relative(path.dirname(template), __dirname)
   {scripts, style, args} = _templates[template]
   return {
     origin:   _origin
@@ -82,7 +83,7 @@ template_arguments = (template) ->
   }
 
 # All files to be compiled
-_all_files = 
+_all_files =
   templates:  []
   scripts:    [
     (path.normalize file for file in common_scripts)...
@@ -171,7 +172,7 @@ task 'build', "Compile all source files", ->
   for file in _all_files.style
     if /\.styl$/.test file
       translate file
-    else 
+    else
       copy file
   for file in _all_files.static
     copy file
@@ -204,7 +205,7 @@ task 'watch-files', "Rebuild files on changes", ->
     if file in _all_files.style
       if /\.styl$/.test file
         translate file
-      else 
+      else
         copy file
     if file in _all_files.templates
       render file
@@ -212,9 +213,7 @@ task 'watch-files', "Rebuild files on changes", ->
       copy file
 
 task 'server', "Launch development server", ->
-  connect(
-    connect.static(path.join __dirname, 'bin')
-  ).listen _port
+  app.use(serveStatic(path.join(__dirname, 'bin'))).listen _port
 
 task 'develop', "Build, watch and launch development server", ->
   invoke 'watch'
