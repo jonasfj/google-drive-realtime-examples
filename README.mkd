@@ -3,7 +3,7 @@ CodeMirror Collaboration with Google Drive Realtime Api
 
 This is a little fun project to make a realtime collaborative CodeMirror session using Google Drive Realtime Api.
 
-  * [Try the demo here](http://jonasfj.github.com/realtime-codemirror-example).
+  * [Try the demo here](http://jonasfj.github.io/google-drive-realtime-examples/).
   * [Read blog post here](http://jonasfj.dk/blog/2013/03/codemirror-collaboration-with-google-drive-realtime-api/)
 
 License
